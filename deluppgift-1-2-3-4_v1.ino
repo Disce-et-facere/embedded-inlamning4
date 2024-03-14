@@ -3,8 +3,8 @@
 #define BLUE_LED_PIN 9
 #define POTENTIOMETER_PIN 3 
 #define ANALOG_PIN A0
-#define RED_BUTTON_PIN 8
-#define GREEN_BUTTON_PIN 12
+#define RED_BUTTON_PIN 12
+#define GREEN_BUTTON_PIN 8
 #define BLUE_BUTTON_PIN 7
 #define DEBOUNCE_DELAY 180 // button to breadboard connections is terrible!!!
 #define INTERUPT_PIN 2
