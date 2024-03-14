@@ -1,6 +1,6 @@
-#define RED_LED_PIN 9
+#define RED_LED_PIN 11
 #define GREEN_LED_PIN 10
-#define BLUE_LED_PIN 11
+#define BLUE_LED_PIN 9
 #define POTENTIOMETER_PIN 3 
 #define ANALOG_PIN A0
 #define RED_BUTTON_PIN 8
