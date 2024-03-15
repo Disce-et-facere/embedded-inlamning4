@@ -8,11 +8,11 @@ int preferredVoltage;
 
 void setup(){
 
-pinMode(PWM_PIN,OUTPUT);
-pinMode(ANALOG_PIN,INPUT);
-
-
-Serial.begin(9600);
+  pinMode(PWM_PIN,OUTPUT);
+  pinMode(ANALOG_PIN,INPUT);
+  
+  
+  Serial.begin(9600);
 
 }
 
@@ -148,4 +148,5 @@ void loop(){
     showAnalogVoltage();
 
   }
+  
 }
