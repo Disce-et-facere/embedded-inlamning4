@@ -295,8 +295,6 @@ void ledBtnWithDebouncer(){
 
     lastDebounceTimeGreenBtn = currentMillis;
 
-   
-
   }
   
   if(isBlueButtonEnabled && currentMillis - lastDebounceTimeBlueBtn >= DEBOUNCE_DELAY){
@@ -375,16 +373,19 @@ void loop(){
       
       isRedLedOn = true;
       isPotentPwmControlOn = true;
+      controlPotentiometer(1);
 
     }else if(input == "control green led with potentiometer"){
       
       isGreenLedOn = true;
       isPotentPwmControlOn = true;
+      controlPotentiometer(1);
 
     }else if(input == "control blue led with potentiometer"){
       
       isBlueLedOn = true;
       isPotentPwmControlOn = true;
+      controlPotentiometer(1);
 
     }else if(input == "reset potentiometer pwm control"){
       
@@ -393,6 +394,7 @@ void loop(){
       isBlueLedOn = false;
       
       isPotentPwmControlOn = false;
+      controlPotentiometer(0);
 
     }else if(input == "show voltage"){
 
