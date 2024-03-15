@@ -6,7 +6,7 @@
 #define RED_BUTTON_PIN 7
 #define GREEN_BUTTON_PIN 8
 #define BLUE_BUTTON_PIN 12
-#define DEBOUNCE_DELAY 100
+#define DEBOUNCE_DELAY 120
 #define INTERUPT_PIN 2
 
 bool turnLedLoopOn = false;
@@ -26,9 +26,6 @@ unsigned long lastDebounceTimeRedBtn = 0;
 unsigned long lastDebounceTimeGreenBtn = 0;
 unsigned long lastDebounceTimeBlueBtn = 0;
 unsigned long lastInteruptFired = 0;
-
-
-
 
 void setup(){
   pinMode(RED_LED_PIN,OUTPUT);
@@ -151,12 +148,11 @@ void controlPotentiometer(int onOff){
     digitalWrite(POTENTIOMETER_PIN,LOW);
 
   }
-  
+
 }
 
 void interuptHandler(){
-  
-  if (millis() - lastInteruptFired < 200) { // Debounce
+  if (millis() - lastInteruptFired < 50) {
     return;
   }
   lastInteruptFired = millis();
@@ -166,6 +162,10 @@ void interuptHandler(){
   ledBtnWithDebouncer();
   
   interuptPinMode();
+
+  if(!enableInterupt){
+    normalPinMode();
+  }
   
 }
 
@@ -219,6 +219,7 @@ void ledBtnWithoutDebouncer(){
   
   }
   
+
   if(redBtnValue == LOW){
     Serial.println("RED BTN IS PRESSED!");
     if(isRedLedOn){
@@ -558,7 +559,7 @@ void loop(){
 
       Serial.println("\nINTERUPT DISABLED");
       enableInterupt = false;
-      normalPinMode();
+      normalPinMode(); 
 
     
     }else{
