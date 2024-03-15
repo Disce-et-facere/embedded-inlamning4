@@ -158,7 +158,6 @@ void interuptHandler(){
 
   if(enableInterupt){
 
-    isDebouncerOn = true;
     ledBtnWithDebouncer();
 
   }else{
@@ -271,8 +270,6 @@ void ledBtnWithDebouncer(){
     }
 
     lastDebounceTimeGreenBtn = currentMillis;
-
-   
 
   }
   
@@ -534,7 +531,6 @@ void loop(){
 
       Serial.println("\nINTERUPT DISABLED");
       enableInterupt = false;
-      isDebouncerOn = false;// add to interupt handler.
     
     }else{
 
