@@ -52,40 +52,42 @@ void displayCommands(){
   Serial.println("COMMANDS: ");
 
   Serial.println("\nPART 1:");
-  Serial.println("LED LOOP ON");
-  Serial.println("LED LOOP OFF");
-  Serial.println("ENABLE BUTTONS");
-  Serial.println("DISABLE BUTTONS");
-   Serial.println("CONTROL (PIN) WITH POTENTIOMETER");
+  Serial.println("led loop on");
+  Serial.println("led loop off");
+  Serial.println("enable buttons");
+  Serial.println("disable buttons");
+  Serial.println("control red led with pontentiometer");
+  Serial.println("control green led with pontentiometer");
+  Serial.println("control blue led with pontentiometer");
 
   Serial.println("\nPART 2:");
-  Serial.println("ENABLE DEBOUNCER");
-  Serial.println("DISABLE DEBOUNCER");
+  Serial.println("enable debouncer");
+  Serial.println("disable debouncer");
 
   Serial.println("\nPART 3:");
-  Serial.println("RED LED ON");
-  Serial.println("RED LED OFF");
-  Serial.println("GREEN LED ON");
-  Serial.println("GREEN LED OFF");
-  Serial.println("BLUE LED ON");
-  Serial.println("BLUE LED OFF");
-  Serial.println("ENABLE RED BUTTON");
-  Serial.println("DISABLE RED BUTTON");
-  Serial.println("ENABLE GREEN BUTTON");
-  Serial.println("DISABLE GREEN BUTTON");
-  Serial.println("ENABLE BLUE BUTTON");
-  Serial.println("DISABLE BLUE BUTTON");
-  Serial.println("SHOW VOLTAGE");
-  Serial.println("HIDE VOLTAGE");
-  Serial.println("ENABLE POTENTIOMETER");
-  Serial.println("DISABLE POTENTIOMETER");
+  Serial.println("red led on");
+  Serial.println("red led off");
+  Serial.println("green led on");
+  Serial.println("green led off");
+  Serial.println("blue led on");
+  Serial.println("blue led off");
+  Serial.println("enable red button");
+  Serial.println("disable red button");
+  Serial.println("enable green button");
+  Serial.println("disable green button");
+  Serial.println("enable blue button");
+  Serial.println("disable blue button");
+  Serial.println("show voltage");
+  Serial.println("hide voltage");
+  Serial.println("enable potentiometer");
+  Serial.println("disable potentiometer");
   Serial.println("set red 0-255");
   Serial.println("set green 0-255");
   Serial.println("set blue 0-255");
 
   Serial.println("\nPART 4:");
-  Serial.println("ENABLE INTERUPT");
-  Serial.println("DISABLE INTERUPT");
+  Serial.println("enable interupt");
+  Serial.println("disable interupt");
 
 }
 
