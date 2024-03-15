@@ -6,7 +6,7 @@
 #define RED_BUTTON_PIN 12
 #define GREEN_BUTTON_PIN 8
 #define BLUE_BUTTON_PIN 7
-#define DEBOUNCE_DELAY 180 // button to breadboard connections is terrible!!!
+#define DEBOUNCE_DELAY 180
 #define INTERUPT_PIN 2
 
 bool turnLedLoopOn = false;
