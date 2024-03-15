@@ -3,10 +3,9 @@
 
 bool showVoltage = false;
 bool correctVoltage = false;
+
 int mV;
-int truemV;
-int pwmValue;
-int preferedVoltage;
+int preferredVoltage;
 
 void setup(){
 
@@ -18,14 +17,14 @@ Serial.begin(9600);
 
 }
 
+
 void showAnalogVoltage(){
 
- int numericalValue = analogRead(ANALOG_PIN);
-  float voltage = numericalValue * (5.0 / 1023.0);
-  truemV = voltage * 1000;
-  mV = truemV * 0.9;
-  Serial.print("prefered Voltage: ");
-  Serial.print(preferedVoltage);
+  pwmOnPin = analogRead(ANALOG_PIN);
+  int voltage = pwmOnPin * (5.0 / 1023.0);
+  mV = voltage * 1000;
+  Serial.print("preferred Voltage: ");
+  Serial.print(preferredVoltage);
   Serial.println("\n");
   Serial.print("mV: ");
   Serial.print(mV);
@@ -34,27 +33,73 @@ void showAnalogVoltage(){
 
 }
 
-void setPinPWM(int pin, int voltage){
+int randomizeVoltage(int milliVolt){
 
-  pwmValue = map(voltage, 0, 5000, 0, 255);
-  analogWrite(pin,pwmValue);
+  randomSeed(millis());
+
+  int randomNumber = random(2);
+
+  float randomVoltage;
+
+  if(randomNumber == 1){
+
+    randomVoltage = milliVolt * 1.1;
+
+  }else if(randomNumber == 0){
+
+    randomVoltage = milliVolt * 0.9;
+  }
+
+  return randomVoltage;
 
 }
+
+void setPinPWM(int pin, int voltage){
+
+  int changedVoltage = randomizeVoltage(voltage);
+
+  int pwmToPin = map(changedVoltage, 0, 5000, 0, 255);
+  analogWrite(pin,pwmToPin);
+
+}
+
 void voltageCorrection(){
 
-    int minAllowedVoltageDiff = preferedVoltage - 20;
+    int minAllowedVoltageDiff = preferredVoltage - 20;
+    int maxAllowedVoltageDiff = preferredVoltage + 20;
 
-    if(mV < minAllowedVoltageDiff){
-      Serial.println("working on it!");
+    int newPWM;
 
-      pwmValue++;
-      analogWrite(PWM_PIN, pwmValue);
+    int currentPWM = map(mV, 0, 5000, 0, 255);
 
-    }else if(mV >= minAllowedVoltageDiff){
+    int preferredPWM = map(preferredVoltage, 0, 5000, 0, 255);
 
-      Serial.println("DONE!");
-      correctVoltage = false;
+    int pwmDiff = preferredPWM - currentPWM;
+
+    if(pwmToChange < 0){
+
+      int absolutePWMtoChange = abs(pwmToChange);
+
+      newPWM = currentPWM - absolutePWM;
+
+    }else if(pwmToChange > 0){
+
+      newPWM = currentPWM + pwmToChange;
+
     }
+
+    int newVoltage = map(newPWM, 0, 255, 0, 5000);
+
+    if(newVoltage > minAllowedVoltageDiff && newVoltage < maxAllowedVoltageDiff){
+
+      analogWrite(PWM_PIN, pwmToChange);
+
+    }else{
+
+      Serial.println("Correction Error!");
+
+    }
+
 }
 
 void loop(){
@@ -78,7 +123,7 @@ void loop(){
         
         preferedVoltage = voltageString.toInt();
 
-        if (preferedVoltage >= 0 && preferedVoltage <= 5000) {
+        if (preferedVoltage >= 0 && preferedVoltage <= 4500) {
     
           setPinPWM(PWM_PIN, preferedVoltage);
 
@@ -87,7 +132,7 @@ void loop(){
             Serial.println("invalid power value!");
           }
 
-    }else if(input == "start correcting voltage"){
+    }else if(input == "correct voltage"){
       
       correctVoltage = true;
 
