@@ -1,43 +1,43 @@
 # embedded-uppgifter
 
-Kommandon:
-  PART 1:
-  led loop on 
-  led loop off
-  enable buttons
-  disable buttons
-  control red led with pontentiometer
-  control green led with pontentiometer
-  control blue led with pontentiometer
+Kommandon:<br>
+  PART 1:<br>
+  led loop on<br>
+  led loop off<br>
+  enable buttons<br>
+  disable buttons<br>
+  control red led with pontentiometer<br>
+  control green led with pontentiometer<br>
+  control blue led with pontentiometer<br>
 
-  PART 2:
-  enable debouncer
-  disable debouncer
+  PART 2:<br>
+  enable debouncer<br>
+  disable debouncer<br>
 
-  PART 3:
-  red led on
-  red led off
-  green led on
-  green led off
-  blue led on
-  blue led off
-  enable red button
-  disable red button
-  enable green button
-  disable green button
-  enable blue button
-  disable blue button
-  show voltage
-  hide voltage
-  enable potentiometer
-  disable potentiometer
-  set red 0-255
-  set green 0-255
-  set blue 0-255
+  PART 3:<br>
+  red led on<br>
+  red led off<br>
+  green led on<br>
+  green led off<br>
+  blue led on<br>
+  blue led off<br>
+  enable red button<br>
+  disable red button<br>
+  enable green button<br>
+  disable green button<br>
+  enable blue button<br>
+  disable blue button<br>
+  show voltage<br>
+  hide voltage<br>
+  enable potentiometer<br>
+  disable potentiometer<br>
+  set red 0-255<br>
+  set green 0-255<br>
+  set blue 0-255<br>
 
-  PART 4:
-  enable interupt
-  disable interupt
+  PART 4:<br>
+  enable interupt<br>
+  disable interupt<br>
 
 
 ## uppgift-1-2-3-4_v2
