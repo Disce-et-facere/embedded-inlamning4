@@ -1,13 +1,13 @@
 # UTRÄKNINGAR
 
-### RÖD LED
+## RÖD LED
 
-$` R = \frac{(5v - 2,2v)}{0,02A} = 150\Omega$ `$
+### $` R = \frac{(5v - 2,2v)}{0,02A} = 150\Omega$ `$
 
-### GRÖN LED
+## GRÖN LED
 
-$` R = \frac{(5v - 2.8v)}{0,02A} = 110\Omega$ `$
+### $` R = \frac{(5v - 2.8v)}{0,02A} = 110\Omega$ `$
 
-### BLÅ LED
+## BLÅ LED
 
-$` R = \frac{(5v - 3v)}{0,02A} = 100\Omega$ `$
+### $` R = \frac{(5v - 3v)}{0,02A} = 100\Omega$ `$
