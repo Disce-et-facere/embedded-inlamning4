@@ -14,4 +14,4 @@ $` R = \frac{(5v - 3v)}{0,02A} = 100\Omega$ `$
 
 ### RESISTOR FÖR KONDENSATOR
 
-$` R = \frac{1s}{(10*10^-6)} = 100000\Omega$ `$
+$` R = \frac{1s}{(10*10^-6 F)} = 100000\Omega$ `$
