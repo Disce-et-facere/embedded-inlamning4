@@ -59,6 +59,7 @@ void displayCommands(){
   Serial.println("control red led with pontentiometer");
   Serial.println("control green led with pontentiometer");
   Serial.println("control blue led with pontentiometer");
+  Serial.println("reset potentiometer pwm control");
 
   Serial.println("\nPART 2:");
   Serial.println("enable debouncer");
