@@ -47,8 +47,95 @@ Commands:<br>
   <br>
   ### 1:st small update in v2
   when sending "control red/green/blue led with pontentiometer" the pontentiometer is started automatically.<br>
-  In v1 you had to start it manually.
+  In v1 you had to start it manually.<br>
 
-  ### 2:nd mayor update in v2
-  The interupter. <br>
+  ### 2:nd mayor update in v2 (INTERUPTER)
+  My goal was to use 3 buttons and 1 interupt pin.<br>
+  
+  In v1 the interuptor was set to CHANGE and the pin was set as INPUT_PULLUP and was connected to the same ground as all buttons.<br>
+  it "worked"(sometimes) in a mysterious wierd glitchy way. It should'nt as it should hit low as soon as the microcontroller starts.<br>
+  
+  I was not satisfied with the former solution, so I found(googled) a new nifty way of doing it without the use of diods or anything else.<br>
+
+  So how it works is:<br>
+
+  First, Insted of connecting all buttons to ground we connect all of them to the interupt pin.<br>
+
+  Second, Change interupt mode from CHANGE to FALLING.<br>
+
+  ```
+  attachInterrupt(digitalPinToInterrupt(INTERUPT_PIN), interuptHandler, FALLING);
+  ```
+  
+  Third, create 2 diffrent pin modes for the button pins and interupt pin.<br>
+
+  Normal/Default Mode <br>
+  ```
+  void normalPinMode(){
+
+    pinMode(INTERUPT_PIN, OUTPUT);
+    digitalWrite(INTERUPT_PIN, LOW);
+    pinMode(RED_BUTTON_PIN, INPUT_PULLUP);
+    pinMode(GREEN_BUTTON_PIN, INPUT_PULLUP);
+    pinMode(BLUE_BUTTON_PIN, INPUT_PULLUP);
+
+  }
+  ```
+  Interupt Mode<br>
+  ```
+  void interuptPinMode(){
+
+    pinMode(INTERUPT_PIN, INPUT_PULLUP);
+    pinMode(RED_BUTTON_PIN, OUTPUT);
+    digitalWrite(RED_BUTTON_PIN, LOW);
+    pinMode(GREEN_BUTTON_PIN, OUTPUT);
+    digitalWrite(GREEN_BUTTON_PIN, LOW);
+    pinMode(BLUE_BUTTON_PIN, OUTPUT);
+    digitalWrite(BLUE_BUTTON_PIN, LOW);
+
+  }
+  ```
+  In default, the interupt pin is set as OUTPUT in LOW state and the buttons are set as INPUT_PULLUP so we are using the interupt pin as "ground".<br>
+  <br>
+  Now when "enable interupt" is sent we switch the pin mode.<br>
+  ```
+  else if(input == "enable interupt"){
+
+    Serial.println("\nINTERUPT ENABLED");
+  
+    enableInterupt = true;
+    interuptPinMode();
+
+  }
+  ```
+  In this state we are using all the button pins as "ground" and the interupt pin is now set to INPUT_PULLUP.<br>
+  <br>
+  So now we get a clean signal to the interupt pin which in turns calls the interuptHandler function.<br>
+
+  ```
+  void interuptHandler(){
+
+    if (millis() - lastInteruptFired < 50) {
+      return;
+    }
+
+    lastInteruptFired = millis();
+  
+    normalPinMode();
+  
+    ledBtnWithDebouncer();
+    
+    interuptPinMode();
+  
+    if(!enableInterupt){
+      normalPinMode();
+    }
+  
+  }
+  ```
+
+  When the InteruptHandler is called it changes the pin mode back to default/normal mode and now we can read which button was pressed.<br>
+  And then it changes the pin mode back to interupt mode for the next interupt event.<br>
+
+  When we want to disable the interupt we just simply turn the pin mode back to default/normal mode.<br>
   
