@@ -1,4 +1,4 @@
-# UTRÄKNINGAR
+# Calculations
 
 ### RÖD LED
 
