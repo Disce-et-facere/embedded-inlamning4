@@ -1,4 +1,6 @@
 ## uppgift-1-2-3-4_v1<br>
+[Calculations](/guides/content/editing-an-existing-page) <br>
+<br>
 Commands:<br>
   PART 1:<br>
   led loop on - starts a loop with the red, green and blue led <br>
