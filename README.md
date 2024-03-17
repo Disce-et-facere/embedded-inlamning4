@@ -55,7 +55,7 @@ Commands:<br>
   My goal was to use 3 buttons and 1 interupt pin.<br>
   
   In v1 the interuptor was set to CHANGE and the pin was set as INPUT_PULLUP and was connected to the same ground as all buttons.<br>
-  it "worked"(sometimes) in a mysterious wierd glitchy way. It should'nt as it should hit low as soon as the microcontroller starts.<br>
+  it "worked"(sometimes) in a mysterious weird glitchy way. It should'nt as it should hit low as soon as the microcontroller starts.<br>
   
   I was not satisfied with the former solution, so I found(googled) a new clever way of doing it without the use of diods or anything else.<br>
 
