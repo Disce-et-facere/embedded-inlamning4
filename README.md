@@ -29,11 +29,11 @@ Commands:<br>
   disable blue button - disables the button for the blue led<br>
   show voltage - starts displaying the voltage on pin A0 in the serial monitor<br>
   hide voltage - stops displaying the voltage on pin A0 in the serial monitor<br>
-  enable potentiometer - this just sets the potentiometer pin to HIGH<br>
-  disable potentiometer - this just sets the potentiometer pin to LOW<br>
-  set red 0-255 - sets the pwm value for the red led<br>
-  set green 0-255 - sets the pwm value for the green led<br>
-  set blue 0-255 - sets the pwm value for the blue led<br>
+  enable potentiometer - this just sets the potentiometer pin to its HIGH state<br>
+  disable potentiometer - this just sets the potentiometer pin to its LOW state<br>
+  set red 0-255 - sets the pwm value for the red led pin<br>
+  set green 0-255 - sets the pwm value for the green led pin<br>
+  set blue 0-255 - sets the pwm value for the blue led pin<br>
 
   PART 4:<br>
   enable interupt - enables the interupt function<br>
