@@ -1,5 +1,5 @@
 ## uppgift-1-2-3-4_v1<br>
-[Calculations](/guides/content/editing-an-existing-page) <br>
+[Calculations](https://github.com/Disce-et-facere/embedded-inlamning4/blob/main/calculations.md) <br>
 <br>
 Commands:<br>
   PART 1:<br>
