@@ -61,7 +61,7 @@ Commands:<br>
 
   So how it works is:<br>
 
-  First, Insted of connecting all buttons to ground we connect all of them to the interupt pin.<br>
+  First, Instead of connecting all buttons to ground we connect all of them to the interupt pin.<br>
 
   Second, Change interupt mode from CHANGE to FALLING.<br>
 
